@@ -1,0 +1,8 @@
+if (read.SelectedItem != null)
+{
+DataRowView row =(DataRowView )read.SelectedItem;
+selectedNameId=Convert.ToString();
+tx.Text = row["nameu"].ToString();
+tx1.Text = row["password"].ToString();
+
+}

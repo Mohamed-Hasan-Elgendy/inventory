@@ -1,0 +1,70 @@
+
+create table Product
+(
+product_id int identity(1,1) primary key,
+product_name varchar(50),
+price int
+)
+insert into Product(product_name,price)
+values
+('chesse',56),
+('mlik',54),
+('Biscuit',60)
+
+create table Suppliers
+(
+Supplier_id int identity(1,1) primary key,
+Supplier_name varchar(30),
+Supplier_password varchar(30),
+Supplier_phonenum varchar(11)
+)
+insert into Suppliers
+values
+('khaled','456','01478523690'),
+('mahmmod','23344','01125874133'),
+('mai','533','01236985472')
+
+create table Stock_Level_Tracking
+(
+Stock_id int identity(1,1) primary key,
+Stock_name varchar(100),
+product_id int,
+foreign key (product_id)references Product(product_id)
+
+)
+insert into Stock_Level_Tracking
+values
+('stock1',1),
+('stock2',3),
+('stock3',2)
+
+
+create table Customers
+(
+customer_id int identity(1,1) primary key,
+customer_name varchar(50),
+customer_password varchar(50),
+customer_phonenum varchar(11)
+)
+insert into Customers
+values 
+('customer1','cust.145#','01204660221'),
+('customer2','user@54533','01289043824'),
+('customer3','ftyu015','01101199760')
+
+
+create table order_list
+(
+Order_Id  int identity(1,1) primary key,
+Customer_id int,
+Product_id int,
+Quantity int,
+total_price decimal(10,3),
+foreign key (Customer_id)references customers(Customer_id),
+foreign key(Product_id)references Product(Product_id)
+)
+insert into order_list
+values 
+(1,1,20,550),
+(2,2,60,1000),
+(3,3,110,1900)
